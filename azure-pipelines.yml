@@ -17,7 +17,7 @@ steps:
     
 - task: CmdLine@2
   inputs:
-    script: 'docker login --username $(DOCKER_USER) --password $(DOCKER_PASS)'
+    script: 'docker login --username edvl --password $(DOCKER_PASS)'
 
 - task: CmdLine@2
   inputs:
