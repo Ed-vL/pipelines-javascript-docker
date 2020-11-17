@@ -11,14 +11,17 @@ steps:
 - task: Docker@2
   displayName: Build an image
   inputs:
+    repository: 'ah'
     command: build
     Dockerfile: app/Dockerfile
     tags: dtest-$(Build.BuildId)
     
 - task: CmdLine@2
+  displayName: Docker Login
   inputs:
     script: 'docker login --username edvl --password $(DOCKER_PASS)'
 
 - task: CmdLine@2
+  displayName: Docker push
   inputs:
-    script: 'docker push edvl/test:dtest-$(Build.BuildId)'
+    script: 'docker push edvl/test:ah:dtest-$(Build.BuildId)'
