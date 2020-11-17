@@ -21,4 +21,4 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'docker push edvl/test:$(imageName):$(Build.BuildNumber)'
+    script: 'docker push edvl/test:$(imageName):$(Build.BuildId)'
