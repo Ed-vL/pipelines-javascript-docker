@@ -14,6 +14,7 @@ steps:
     repository: $(imageName)
     command: build
     Dockerfile: app/Dockerfile
+    tags: dtest
     
 - task: CmdLine@2
   inputs:
@@ -21,4 +22,4 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'docker push edvl/test:$(imageName):$(Build.BuildId)'
+    script: 'docker push edvl/test:dtest'
