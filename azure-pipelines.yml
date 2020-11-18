@@ -8,13 +8,10 @@ variables:
   imageName: 'pipelines-javascript-docker'
 
 steps:
-- task: Docker@2
-  displayName: Build an image
+- task: CmdLine@2
+  displayName: Docker Build
   inputs:
-    repository: 'ah'
-    command: build
-    Dockerfile: app/Dockerfile
-    tags: dtest-$(Build.BuildId)
+    script: 'docker build  -t teste-$(Build.BuildId) -f ./app/Dockerfile .'
     
 - task: CmdLine@2
   displayName: Docker Login
@@ -24,4 +21,4 @@ steps:
 - task: CmdLine@2
   displayName: Docker push
   inputs:
-    script: 'docker push edvl/test:ah:dtest-$(Build.BuildId)'
+    script: 'docker push edvl/test:teste-$(Build.BuildId)'
