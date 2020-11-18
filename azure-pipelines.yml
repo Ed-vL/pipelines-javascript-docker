@@ -11,7 +11,7 @@ steps:
 - task: CmdLine@2
   displayName: Docker Build
   inputs:
-    script: 'docker build  -t teste-$(Build.BuildId) .'
+    script: 'docker build  -t edvl/test:$(Build.BuildId) .'
     workingDirectory: './app'
     
 - task: CmdLine@2
@@ -22,4 +22,4 @@ steps:
 - task: CmdLine@2
   displayName: Docker push
   inputs:
-    script: 'docker push edvl/test:teste-$(Build.BuildId)'
+    script: 'docker push edvl/test:$(Build.BuildId)'
