@@ -11,7 +11,8 @@ steps:
 - task: CmdLine@2
   displayName: Docker Build
   inputs:
-    script: 'docker build  -t teste-$(Build.BuildId) -f ./app/Dockerfile .'
+    script: 'docker build  -t teste-$(Build.BuildId) .'
+    workingDirectory: './app'
     
 - task: CmdLine@2
   displayName: Docker Login
